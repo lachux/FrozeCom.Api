@@ -1,0 +1,6 @@
+@FrozeCom.Api_HostAddress = http://localhost:5186
+
+GET {{FrozeCom.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
