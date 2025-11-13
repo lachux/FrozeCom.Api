@@ -3,13 +3,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using PayingGuest.Application;
-using PayingGuest.Application.Interfaces;
-using PayingGuest.Domain.Entities;
-using PayingGuest.Domain.Interfaces;
-using PayingGuest.Infrastructure.Data;
-using PayingGuest.Infrastructure.Repositories;
-using PayingGuest.Infrastructure.Services;
+using Froze.Application;
+using Froze.Application.Interfaces;
+using Froze.Domain.Entities;
+using Froze.Domain.Interfaces;
+using Froze.Infrastructure.Data;
+using Froze.Infrastructure.Repositories;
+using Froze.Infrastructure.Services;
 using Polly;
 using Polly.Extensions.Http;
 using System;
@@ -18,7 +18,7 @@ using System.Net.Http;
 
 
 
-namespace PayingGuest.Infrastructure
+namespace Froze.Infrastructure
 {
     /// <summary>
     /// Extension methods for setting up infrastructure layer services in DI container
@@ -37,7 +37,7 @@ namespace PayingGuest.Infrastructure
             ValidateConfiguration(configuration);
 
             // Add Database Context
-            services.AddDbContext<PayingGuestDbContext>(options =>
+            services.AddDbContext<FrozeDbContext>(options =>
             {
                 var connectionString = configuration.GetConnectionString("PayingGuestDb");
 

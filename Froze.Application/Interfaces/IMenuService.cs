@@ -1,11 +1,11 @@
-﻿using PayingGuest.Application.DTOs.Menus;
+﻿using Froze.Application.DTOs.Menus;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayingGuest.Application.Interfaces
+namespace Froze.Application.Interfaces
 {
     public interface IMenuService
     {

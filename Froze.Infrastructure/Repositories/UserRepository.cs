@@ -2,37 +2,34 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using PayingGuest.Domain.Entities;
-using PayingGuest.Domain.Interfaces;
-using PayingGuest.Infrastructure.Data;
+using Froze.Domain.Entities;
+using Froze.Domain.Interfaces;
+using Froze.Infrastructure.Data;
 
-namespace PayingGuest.Infrastructure.Repositories
+namespace Froze.Infrastructure.Repositories
 {
     public class UserRepository : Repository<User>, IUserRepository
     {
-        public UserRepository(PayingGuestDbContext context) : base(context)
+        public UserRepository(FrozeDbContext context) : base(context)
         {
         }
 
         public override async Task<User?> GetByIdAsync(int id)
         {
             return await _dbSet
-                .Include(u => u.Property)
                 .FirstOrDefaultAsync(u => u.UserId == id);
         }
 
         public async Task<User?> GetByEmailAsync(string email)
         {
             return await _dbSet
-                .Include(u => u.Property)
                 .FirstOrDefaultAsync(u => u.EmailAddress == email);
         }
 
         public async Task<IEnumerable<User>> GetByPropertyAndTypeAsync(int propertyId, string userType)
         {
             return await _dbSet
-                .Include(u => u.Property)
-                .Where(u => u.PropertyId == propertyId && u.UserType == userType && u.IsActive)
+                .Where(u => u.IsActive)
                 .ToListAsync();
         }
 

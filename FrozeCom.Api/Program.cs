@@ -1,7 +1,7 @@
 using Microsoft.OpenApi.Models;
-using PayingGuest.Api.Middleware;
-using PayingGuest.Application;
-using PayingGuest.Infrastructure;
+using Froze.Api.Middleware;
+using Froze.Application;
+using Froze.Infrastructure;
 using Serilog;
 using System.Text;
 using System.Text.Json;
@@ -14,7 +14,7 @@ Log.Logger = new LoggerConfiguration()
 
 try
 {
-    Log.Information("Starting PayingGuest API application");
+    Log.Information("Starting Froze API application");
 
     var builder = WebApplication.CreateBuilder(args);
 
@@ -27,7 +27,7 @@ try
     ConfigureMiddleware(app, app.Environment);
 
 
-    Log.Information("PayingGuest API started successfully");
+    Log.Information("Froze API started successfully");
     Log.Information("Swagger UI available at: {SwaggerUrl}",
         app.Environment.IsDevelopment() ? "https://localhost:5001/swagger" : "{BaseUrl}/swagger");
 
@@ -39,7 +39,7 @@ catch (Exception ex) when (ex.GetType().Name != "StopTheHostException")
 }
 finally
 {
-    Log.Information("Shutting down PayingGuest API");
+    Log.Information("Shutting down Froze API");
     await Log.CloseAndFlushAsync();
 }
 
@@ -67,14 +67,14 @@ static void ConfigureServices(IServiceCollection services, IConfiguration config
     {
         options.SwaggerDoc("v1", new OpenApiInfo
         {
-            Title = "PayingGuest API",
+            Title = "Froze API",
             Version = "v1",
-            Description = "API for PayingGuest Management System with IdentityServer Integration",
+            Description = "API for Froze Management System with IdentityServer Integration",
             TermsOfService = new Uri("https://thoughtwalks.net/"),
             Contact = new OpenApiContact
             {
-                Name = "PayingGuest Support",
-                Email = "support@payingguest.com",
+                Name = "Froze Support",
+                Email = "support@Froze.com",
                 Url = new Uri("https://thoughtwalks.net/")
             },
             License = new OpenApiLicense
@@ -173,10 +173,10 @@ static void ConfigureServices(IServiceCollection services, IConfiguration config
     // Add CORS
     services.AddCors(options =>
     {
-        options.AddPolicy("PayingGuestCorsPolicy",
+        options.AddPolicy("FrozeCorsPolicy",
             policy =>
             {
-                policy.WithOrigins("http://localhost:3000", "https://localhost:3001", "http://localhost:5000")
+                policy.WithOrigins("http://localhost:4200", "https://localhost:3001", "http://localhost:5000")
                       .AllowAnyHeader()
                       .AllowAnyMethod()
                       .AllowCredentials();
@@ -209,11 +209,11 @@ static void ConfigureMiddleware(WebApplication app, IWebHostEnvironment env)
 
         app.UseSwaggerUI(options =>
         {
-            options.SwaggerEndpoint("/swagger/v1/swagger.json", "PayingGuest API V1");
+            options.SwaggerEndpoint("/swagger/v1/swagger.json", "Froze API V1");
             options.RoutePrefix = "swagger"; // Swagger UI at /swagger
 
             // UI Customizations
-            options.DocumentTitle = "PayingGuest API Documentation";
+            options.DocumentTitle = "Froze API Documentation";
             options.DisplayRequestDuration();
             options.EnableDeepLinking();
             options.EnableFilter();
@@ -258,14 +258,14 @@ static void ConfigureMiddleware(WebApplication app, IWebHostEnvironment env)
     app.UseHttpsRedirection();
 
     // Use CORS
-    app.UseCors("PayingGuestCorsPolicy");
+    app.UseCors("FrozeCorsPolicy");
 
 
     // Serve static files (for custom Swagger CSS if needed)
     //app.UseStaticFiles();
 
     // Custom middleware
-    app.UseMiddleware<TokenValidationMiddleware>();
+    //app.UseMiddleware<TokenValidationMiddleware>();
     app.UseMiddleware<ExceptionHandlingMiddleware>();
 
     // Authentication & Authorization

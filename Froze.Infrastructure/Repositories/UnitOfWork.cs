@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Storage;
-using PayingGuest.Domain.Entities;
-using PayingGuest.Domain.Interfaces;
-using PayingGuest.Infrastructure.Data;
+using Froze.Domain.Entities;
+using Froze.Domain.Interfaces;
+using Froze.Infrastructure.Data;
 
-namespace PayingGuest.Infrastructure.Repositories
+namespace Froze.Infrastructure.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly PayingGuestDbContext _context;
+        private readonly FrozeDbContext _context;
         private IDbContextTransaction? _transaction;
         private IUserRepository? _users;
         private IRepository<Property>? _properties;
@@ -18,7 +18,7 @@ namespace PayingGuest.Infrastructure.Repositories
         public IMenuRepository _menus;
         public IUserRoleRepository _userRoles;
         public IUserTokenRepository _userTokens;
-        public UnitOfWork(PayingGuestDbContext context)
+        public UnitOfWork(FrozeDbContext context)
         {
             _context = context;
         }

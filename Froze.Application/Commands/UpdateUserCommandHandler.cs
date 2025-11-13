@@ -5,14 +5,14 @@ using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using PayingGuest.Application.DTOs;
-using PayingGuest.Application.Interfaces;
-using PayingGuest.Common.Exceptions;
-using PayingGuest.Common.Models;
-using PayingGuest.Domain.Entities;
-using PayingGuest.Domain.Interfaces;
+using Froze.Application.DTOs;
+using Froze.Application.Interfaces;
+using Froze.Common.Exceptions;
+using Froze.Common.Models;
+using Froze.Domain.Entities;
+using Froze.Domain.Interfaces;
 
-namespace PayingGuest.Application.Commands
+namespace Froze.Application.Commands
 {
     public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, ApiResponse<UserDto>>
     {
@@ -60,37 +60,13 @@ namespace PayingGuest.Application.Commands
                 {
                     user.FirstName,
                     user.LastName,
-                    user.PhoneNumber,
-                    user.AlternatePhoneNumber,
-                    user.DateOfBirth,
-                    user.Gender,
-                    user.BloodGroup,
-                    user.EmergencyContactName,
-                    user.EmergencyContactNumber,
-                    user.PermanentAddress,
-                    user.CurrentAddress,
-                    user.Occupation,
-                    user.Company,
-                    user.AadharNumber,
-                    user.PanNumber
+                    
                 });
 
                 // Update user properties
                 user.FirstName = request.UpdateUserDto.FirstName;
                 user.LastName = request.UpdateUserDto.LastName;
-                user.PhoneNumber = request.UpdateUserDto.PhoneNumber;
-                user.AlternatePhoneNumber = request.UpdateUserDto.AlternatePhoneNumber;
-                user.DateOfBirth = request.UpdateUserDto.DateOfBirth;
-                user.Gender = request.UpdateUserDto.Gender;
-                user.BloodGroup = request.UpdateUserDto.BloodGroup;
-                user.EmergencyContactName = request.UpdateUserDto.EmergencyContactName;
-                user.EmergencyContactNumber = request.UpdateUserDto.EmergencyContactNumber;
-                user.PermanentAddress = request.UpdateUserDto.PermanentAddress;
-                user.CurrentAddress = request.UpdateUserDto.CurrentAddress;
-                user.Occupation = request.UpdateUserDto.Occupation;
-                user.Company = request.UpdateUserDto.Company;
-                user.AadharNumber = request.UpdateUserDto.AadharNumber;
-                user.PanNumber = request.UpdateUserDto.PanNumber;
+               
                 user.LastModifiedDate = DateTime.UtcNow;
                 user.LastModifiedBy = _currentUserService.UserName ?? "System";
 
@@ -98,20 +74,7 @@ namespace PayingGuest.Application.Commands
                 var newValues = JsonSerializer.Serialize(new
                 {
                     user.FirstName,
-                    user.LastName,
-                    user.PhoneNumber,
-                    user.AlternatePhoneNumber,
-                    user.DateOfBirth,
-                    user.Gender,
-                    user.BloodGroup,
-                    user.EmergencyContactName,
-                    user.EmergencyContactNumber,
-                    user.PermanentAddress,
-                    user.CurrentAddress,
-                    user.Occupation,
-                    user.Company,
-                    user.AadharNumber,
-                    user.PanNumber
+                    user.LastName,                   
                 });
 
                 // Update in database

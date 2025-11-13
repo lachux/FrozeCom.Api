@@ -3,9 +3,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using PayingGuest.Application.Interfaces;
+using Froze.Application.Interfaces;
 
-namespace PayingGuest.Api.Middleware
+namespace Froze.Api.Middleware
 {
     public class TokenValidationMiddleware
     {

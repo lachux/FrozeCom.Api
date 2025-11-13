@@ -1,16 +1,16 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Logging;
-using PayingGuest.Application.DTOs.Menus;
-using PayingGuest.Application.Interfaces;
-using PayingGuest.Common.Models;
-using PayingGuest.Domain.Interfaces;
+using Froze.Application.DTOs.Menus;
+using Froze.Application.Interfaces;
+using Froze.Common.Models;
+using Froze.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayingGuest.Application.Queries.Menus
+namespace Froze.Application.Queries.Menus
 {
     public class GetUserMenusQueryHandler : IRequestHandler<GetUserMenusQuery, ApiResponse<List<MenuDto>>>
     {

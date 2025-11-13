@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.Logging;
-using PayingGuest.Application.Interfaces;
+using Froze.Application.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayingGuest.Infrastructure.Services
+namespace Froze.Infrastructure.Services
 {
     public class NotificationService : INotificationService
     {

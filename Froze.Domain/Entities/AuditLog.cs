@@ -1,4 +1,4 @@
-﻿namespace PayingGuest.Domain.Entities;
+﻿namespace Froze.Domain.Entities;
 
 public class AuditLog
 {

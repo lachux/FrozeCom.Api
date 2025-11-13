@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using PayingGuest.Application.DTOs;
-using PayingGuest.Common.Models;
+using Froze.Application.DTOs;
+using Froze.Common.Models;
 
-namespace PayingGuest.Application.Commands
+namespace Froze.Application.Commands
 {
     public class UpdateUserCommand : IRequest<ApiResponse<UserDto>>
     {

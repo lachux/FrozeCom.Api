@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using PayingGuest.Application.DTOs;
-using PayingGuest.Application.Interfaces;
-using PayingGuest.Common.Exceptions;
-using PayingGuest.Common.Models;
-using PayingGuest.Domain.Entities;
-using PayingGuest.Domain.Interfaces;
+using Froze.Application.DTOs;
+using Froze.Application.Interfaces;
+using Froze.Common.Exceptions;
+using Froze.Common.Models;
+using Froze.Domain.Entities;
+using Froze.Domain.Interfaces;
 using System;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace PayingGuest.Infrastructure.Services
+namespace Froze.Infrastructure.Services
 {
     public class IdentityService : IIdentityService
     {
@@ -199,18 +199,23 @@ namespace PayingGuest.Infrastructure.Services
                 {
                     throw new TokenException("Failed to obtain client token");
                 }
-                var request = new CreateUserDto
+                var body = new
                 {
-                    Username = username,
-                    Password = password,
-                    Firstname = firstName,
-                    Lastname = lastName
+                    userDto = new CreateUserDto
+                    {
+                        EmailAddress = username,
+                        UserName = username,
+                        Password = password,
+                        FirstName = firstName,
+                        LastName = lastName,
+                        IsActive = true
+                    }
                 };
 
                 _httpClient.DefaultRequestHeaders.Authorization =
                         new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", tokenResponse.AccessToken);
 
-                var response = await _httpClient.PostAsJsonAsync($"{_identityServerUrl}/api/User", request);
+                var response = await _httpClient.PostAsJsonAsync($"{_identityServerUrl}/api/User", body);
 
                 if (!response.IsSuccessStatusCode)
                 {
@@ -226,7 +231,7 @@ namespace PayingGuest.Infrastructure.Services
                 {
                     throw new TokenException("Invalid user response");
                 }
-                return userResponse.Data.UserId.GetValueOrDefault();
+                return userResponse.Data.UserId;
             }
             catch (Exception ex)
             {

@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
-using PayingGuest.Application.Commands;
-using PayingGuest.Application.DTOs;
+using Froze.Application.Commands;
+using Froze.Application.DTOs;
 using System;
 using System.Linq;
 
-namespace PayingGuest.Application.Validators
+namespace Froze.Application.Validators
 {
 
     public class UpdateUserCommandValidator : AbstractValidator<UpdateUserCommand>

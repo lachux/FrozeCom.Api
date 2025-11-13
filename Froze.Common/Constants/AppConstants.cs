@@ -1,4 +1,4 @@
-﻿namespace PayingGuest.Common.Constants;
+﻿namespace Froze.Common.Constants;
 
 public static class AppConstants
 {

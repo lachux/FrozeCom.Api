@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using PayingGuest.Application.DTOs.Menus;
-using PayingGuest.Application.Queries.Menus;
-using PayingGuest.Common.Models;
+using Froze.Application.DTOs.Menus;
+using Froze.Application.Queries.Menus;
+using Froze.Common.Models;
 
-namespace PayingGuest.Api.Controllers
+namespace Froze.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayingGuest.Application.DTOs.Auth
+namespace Froze.Application.DTOs.Auth
 {
     public class LoginDto
     {

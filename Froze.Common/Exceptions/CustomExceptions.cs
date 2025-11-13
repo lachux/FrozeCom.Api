@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PayingGuest.Common.Exceptions
+namespace Froze.Common.Exceptions
 {
     public class NotFoundException : Exception
     {

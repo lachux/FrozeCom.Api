@@ -1,18 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PayingGuest.Domain.Entities;
-using PayingGuest.Domain.Interfaces;
-using PayingGuest.Infrastructure.Data;
+using Froze.Domain.Entities;
+using Froze.Domain.Interfaces;
+using Froze.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayingGuest.Infrastructure.Repositories
+namespace Froze.Infrastructure.Repositories
 {
     public class UserTokenRepository : Repository<UserToken>, IUserTokenRepository
     {
-        public UserTokenRepository(PayingGuestDbContext context) : base(context)
+        public UserTokenRepository(FrozeDbContext context) : base(context)
         {
         }
 

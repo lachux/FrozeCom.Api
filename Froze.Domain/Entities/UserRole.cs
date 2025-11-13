@@ -1,4 +1,4 @@
-﻿using PayingGuest.Domain.Common;
+﻿using Froze.Domain.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayingGuest.Domain.Entities
+namespace Froze.Domain.Entities
 {
     public class UserRole 
     {
@@ -17,7 +17,7 @@ namespace PayingGuest.Domain.Entities
         public Role Role { get; set; } = null!;
         public bool IsActive { get; set; }
         public DateTime CreatedDate { get; set; }
-        public string? CreatedBy { get; set; }
+       // public string? CreatedBy { get; set; }
 
 
     }

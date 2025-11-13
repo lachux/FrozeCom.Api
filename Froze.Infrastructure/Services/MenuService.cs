@@ -1,20 +1,20 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PayingGuest.Application.DTOs.Menus;
-using PayingGuest.Application.Interfaces;
-using PayingGuest.Infrastructure.Data;
+using Froze.Application.DTOs.Menus;
+using Froze.Application.Interfaces;
+using Froze.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayingGuest.Infrastructure.Services
+namespace Froze.Infrastructure.Services
 {
     public class MenuService : IMenuService
     {
-        private readonly PayingGuestDbContext _context;
+        private readonly FrozeDbContext _context;
 
-        public MenuService(PayingGuestDbContext context)
+        public MenuService(FrozeDbContext context)
         {
             _context = context;
         }

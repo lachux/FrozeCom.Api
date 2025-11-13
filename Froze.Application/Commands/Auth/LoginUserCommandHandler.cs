@@ -1,17 +1,17 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using PayingGuest.Application.DTOs.Auth;
-using PayingGuest.Application.Interfaces;
-using PayingGuest.Common.Models;
-using PayingGuest.Domain.Interfaces;
+using Froze.Application.DTOs.Auth;
+using Froze.Application.Interfaces;
+using Froze.Common.Models;
+using Froze.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayingGuest.Application.Commands.Auth
+namespace Froze.Application.Commands.Auth
 {
     public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, ApiResponse<LoginResponseDto>>
     {
@@ -41,7 +41,7 @@ namespace PayingGuest.Application.Commands.Auth
             {
                 // Validate credentials with IdentityServer
                 var tokenResponse = await _identityService.ValidateCredentialsAsync(
-                    request.Username,
+                    request.Email,
                     request.Password);
 
                 if (string.IsNullOrEmpty(tokenResponse.AccessToken))
@@ -50,7 +50,7 @@ namespace PayingGuest.Application.Commands.Auth
                 }
 
                 // Get user details from PayingGuest database
-                var user = await _unitOfWork.Users.GetByEmailAsync(request.Username);
+                var user = await _unitOfWork.Users.GetByEmailAsync(request.Email);
                 if (user == null || !user.IsActive)
                 {
                     return ApiResponse<LoginResponseDto>.ErrorResponse("User not found or inactive");
@@ -60,11 +60,11 @@ namespace PayingGuest.Application.Commands.Auth
                 var userAgent = _httpContextAccessor.HttpContext?.Request.Headers["User-Agent"].ToString();
 
                 // Save token to database
-                await _tokenService.SaveUserTokenAsync(
-                    user.UserId,
-                    tokenResponse,
-                    ipAddress,
-                    userAgent);
+                //await _tokenService.SaveUserTokenAsync(
+                //    user.UserId,
+                //    tokenResponse,
+                //    ipAddress,
+                //    userAgent);
 
 
                 // Get user with roles

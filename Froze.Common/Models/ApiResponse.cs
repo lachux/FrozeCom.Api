@@ -1,4 +1,4 @@
-﻿namespace PayingGuest.Common.Models
+﻿namespace Froze.Common.Models
 {
     public class ApiResponse<T>
     {

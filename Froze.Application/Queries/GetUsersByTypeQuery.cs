@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using MediatR;
-using PayingGuest.Application.DTOs;
-using PayingGuest.Common.Models;
+using Froze.Application.DTOs;
+using Froze.Common.Models;
 
-namespace PayingGuest.Application.Queries
+namespace Froze.Application.Queries
 {
     public class GetUsersByTypeQuery : IRequest<ApiResponse<IEnumerable<UserDto>>>
     {

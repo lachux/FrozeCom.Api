@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using PayingGuest.Common.Models;
+using Froze.Common.Models;
 
-namespace PayingGuest.Application.Interfaces
+namespace Froze.Application.Interfaces
 {
     public interface ITokenCacheService
     {

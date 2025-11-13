@@ -1,12 +1,12 @@
-﻿using PayingGuest.Application;
-using PayingGuest.Application.Interfaces;
+﻿using Froze.Application;
+using Froze.Application.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayingGuest.Infrastructure.Services
+namespace Froze.Infrastructure.Services
 {
     public class DateTimeService : IDateTimeService
     {

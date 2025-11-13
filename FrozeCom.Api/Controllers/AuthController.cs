@@ -1,16 +1,16 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using PayingGuest.Application.Commands;
-using PayingGuest.Application.Commands.Auth;
-using PayingGuest.Application.Commands.Auth.Refresh;
-using PayingGuest.Application.DTOs;
-using PayingGuest.Application.DTOs.Auth;
-using PayingGuest.Application.Interfaces;
-using PayingGuest.Common.Models;
+using Froze.Application.Commands;
+using Froze.Application.Commands.Auth;
+using Froze.Application.Commands.Auth.Refresh;
+using Froze.Application.DTOs;
+using Froze.Application.DTOs.Auth;
+using Froze.Application.Interfaces;
+using Froze.Common.Models;
 using System.ComponentModel.DataAnnotations;
 
-namespace PayingGuest.Api.Controllers
+namespace Froze.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -85,7 +85,7 @@ namespace PayingGuest.Api.Controllers
 
             var command = new LoginUserCommand
             {
-                Username = request.Username,
+                Email = request.Email,
                 Password = request.Password
             };
 
@@ -143,7 +143,7 @@ namespace PayingGuest.Api.Controllers
     }
     public class LoginRequest
     {
-        public string Username { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
     }
 

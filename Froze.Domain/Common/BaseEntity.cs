@@ -1,4 +1,4 @@
-﻿namespace PayingGuest.Domain.Common;
+﻿namespace Froze.Domain.Common;
 
 public abstract class BaseEntity
 {

@@ -5,10 +5,10 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using PayingGuest.Common.Exceptions;
-using PayingGuest.Common.Models;
+using Froze.Common.Exceptions;
+using Froze.Common.Models;
 
-namespace PayingGuest.Api.Middleware
+namespace Froze.Api.Middleware
 {
     public class ExceptionHandlingMiddleware
     {

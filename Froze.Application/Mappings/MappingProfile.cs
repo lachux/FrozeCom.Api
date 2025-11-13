@@ -1,19 +1,16 @@
 ﻿using AutoMapper;
-using PayingGuest.Application.Commands;
-using PayingGuest.Application.DTOs;
-using PayingGuest.Application.DTOs.Menus;
-using PayingGuest.Domain.Entities;
+using Froze.Application.Commands;
+using Froze.Application.DTOs;
+using Froze.Application.DTOs.Menus;
+using Froze.Domain.Entities;
 
-namespace PayingGuest.Application.Mappings
+namespace Froze.Application.Mappings
 {
     public class MappingProfile : Profile
     {
         public MappingProfile()
         {
-            // User mappings
-            CreateMap<User, UserDto>()
-                .ForMember(dest => dest.PropertyName,
-                    opt => opt.MapFrom(src => src.Property != null ? src.Property.PropertyName : string.Empty));
+      
 
             CreateMap<RegisterUserDto, User>()
                 .ForMember(dest => dest.CreatedDate, opt => opt.MapFrom(src => DateTime.UtcNow))
@@ -22,19 +19,15 @@ namespace PayingGuest.Application.Mappings
                 .ForMember(dest => dest.LastModifiedDate, opt => opt.Ignore())
                 .ForMember(dest => dest.LastModifiedBy, opt => opt.Ignore())
                 .ForMember(dest => dest.CreatedBy, opt => opt.Ignore())
-                .ForMember(dest => dest.Property, opt => opt.Ignore())
                 .ForMember(dest => dest.UserRoles, opt => opt.Ignore());
 
             CreateMap<UpdateUserDto, User>()
                 .ForMember(dest => dest.LastModifiedDate, opt => opt.MapFrom(src => DateTime.UtcNow))
                 .ForMember(dest => dest.UserId, opt => opt.Ignore())
-                .ForMember(dest => dest.PropertyId, opt => opt.Ignore())
-                .ForMember(dest => dest.UserType, opt => opt.Ignore())
                 .ForMember(dest => dest.EmailAddress, opt => opt.Ignore())
                 .ForMember(dest => dest.IsActive, opt => opt.Ignore())
                 .ForMember(dest => dest.CreatedDate, opt => opt.Ignore())
-                .ForMember(dest => dest.CreatedBy, opt => opt.Ignore())
-                .ForMember(dest => dest.Property, opt => opt.Ignore());
+                .ForMember(dest => dest.CreatedBy, opt => opt.Ignore());
 
             // Property mappings
             CreateMap<Property, PropertyDto>();

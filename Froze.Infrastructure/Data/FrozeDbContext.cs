@@ -1,17 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PayingGuest.Domain.Entities;
+using Froze.Domain.Entities;
 
-namespace PayingGuest.Infrastructure.Data
+namespace Froze.Infrastructure.Data
 {
-    public class PayingGuestDbContext : DbContext
+    public class FrozeDbContext : DbContext
     {
-        public PayingGuestDbContext(DbContextOptions<PayingGuestDbContext> options)
+        public FrozeDbContext(DbContextOptions<FrozeDbContext> options)
             : base(options)
         {
         }
 
         public DbSet<User> Users { get; set; }
-        public DbSet<Property> Properties { get; set; }
         public DbSet<AuditLog> AuditLogs { get; set; }
         public DbSet<ClientToken> ClientTokens { get; set; }
         public DbSet<Role> Roles { get; set; }
@@ -24,29 +23,18 @@ namespace PayingGuest.Infrastructure.Data
             base.OnModelCreating(modelBuilder);
 
             // Configure schema
-            object value = modelBuilder.HasDefaultSchema("PG");
+            object value = modelBuilder.HasDefaultSchema("dbo");
 
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(PayingGuestDbContext).Assembly);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(FrozeDbContext).Assembly);
             // User configuration
             modelBuilder.Entity<User>(entity =>
             {
                 entity.ToTable("User");
                 entity.HasKey(e => e.UserId);
                 entity.Property(e => e.EmailAddress).IsRequired().HasMaxLength(255);
-                entity.HasIndex(e => e.EmailAddress).IsUnique();
-
-                entity.HasOne(e => e.Property)
-                    .WithMany(p => p.Users)
-                    .HasForeignKey(e => e.PropertyId);
+                entity.HasIndex(e => e.EmailAddress).IsUnique();            
             });
-
-            //// Property configuration
-            modelBuilder.Entity<Property>(entity =>
-            {
-                entity.ToTable("Property");
-                entity.HasKey(e => e.PropertyId);
-            });
-
+          
             //// AuditLog configuration
             modelBuilder.Entity<AuditLog>(entity =>
             {
@@ -102,7 +90,7 @@ namespace PayingGuest.Infrastructure.Data
 
             modelBuilder.Entity<Menu>(entity =>
             {
-                entity.ToTable("Menu", "PG");
+                entity.ToTable("Menu","dbo");
 
                 entity.HasKey(e => e.MenuId);
 
@@ -143,7 +131,7 @@ namespace PayingGuest.Infrastructure.Data
             // ROLE
             modelBuilder.Entity<Role>(entity =>
             {
-                entity.ToTable("Role", "PG");
+                entity.ToTable("Role", "dbo");
 
                 entity.HasKey(e => e.RoleId);
 
@@ -169,7 +157,7 @@ namespace PayingGuest.Infrastructure.Data
             // ROLE MENU PERMISSION
             modelBuilder.Entity<RoleMenuPermission>(entity =>
             {
-                entity.ToTable("RoleMenuPermission", "PG");
+                entity.ToTable("RoleMenuPermission", "dbo");
 
                 entity.HasKey(e => e.RoleMenuPermissionId);
 

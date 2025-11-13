@@ -1,12 +1,12 @@
-﻿using PayingGuest.Common.Models;
-using PayingGuest.Domain.Entities;
+﻿using Froze.Common.Models;
+using Froze.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayingGuest.Application.Interfaces
+namespace Froze.Application.Interfaces
 {
     public interface ITokenService
     {

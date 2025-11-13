@@ -3,12 +3,12 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using PayingGuest.Application.Commands;
-using PayingGuest.Application.DTOs;
-using PayingGuest.Application.Queries;
-using PayingGuest.Common.Models;
+using Froze.Application.Commands;
+using Froze.Application.DTOs;
+using Froze.Application.Queries;
+using Froze.Common.Models;
 
-namespace PayingGuest.Api.Controllers
+namespace Froze.Api.Controllers
 {
     [Authorize]
     [ApiController]
@@ -80,7 +80,7 @@ namespace PayingGuest.Api.Controllers
         [ProducesResponseType(typeof(ApiResponse<IEnumerable<UserDto>>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetUsersByType(int propertyId, string userType)
         {
-            _logger.LogInformation("Getting users for property {PropertyId} with type {UserType}", propertyId, userType);
+            _logger.LogInformation("Getting users for property {PropertyId} with type {UserType}", userType);
 
             var query = new GetUsersByTypeQuery
             {

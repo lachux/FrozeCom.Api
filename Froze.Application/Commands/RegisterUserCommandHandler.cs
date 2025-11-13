@@ -1,17 +1,17 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using PayingGuest.Application.DTOs;
-using PayingGuest.Application.Interfaces;
-using PayingGuest.Common.Exceptions;
-using PayingGuest.Common.Models;
-using PayingGuest.Domain.Entities;
-using PayingGuest.Domain.Interfaces;
+using Froze.Application.DTOs;
+using Froze.Application.Interfaces;
+using Froze.Common.Exceptions;
+using Froze.Common.Models;
+using Froze.Domain.Entities;
+using Froze.Domain.Interfaces;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace PayingGuest.Application.Commands
+namespace Froze.Application.Commands
 {
     public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, ApiResponse<UserDto>>
     {
@@ -43,12 +43,7 @@ namespace PayingGuest.Application.Commands
                     return ApiResponse<UserDto>.ErrorResponse("Email address already exists");
                 }
 
-                // Check if property exists
-                var property = await _unitOfWork.Properties.GetByIdAsync(request.RegisterUserDto.PropertyId);
-                if (property == null)
-                {
-                    return ApiResponse<UserDto>.ErrorResponse("Property not found");
-                }
+                
                 // Create user in IdentityServer
                 var identityServerUserId = await _identityService.CreateUserAsync(
                     request.RegisterUserDto.EmailAddress,
@@ -67,6 +62,7 @@ namespace PayingGuest.Application.Commands
                 user.CreatedDate = DateTime.UtcNow;
                 user.IdentityServerUserId = identityServerUserId;
                 user.IsActive = true;
+                
 
                 await _unitOfWork.Users.AddAsync(user);
                 await _unitOfWork.SaveChangesAsync();
@@ -90,8 +86,13 @@ namespace PayingGuest.Application.Commands
              
 
                 // Load property for response
-                user.Property = property;
-                var userDto = _mapper.Map<UserDto>(user);
+                var userDto = new UserDto
+                {
+                    UserId = user.UserId,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    EmailAddress = user.EmailAddress,
+                };
 
                 // Create audit log
                 var auditLog = new AuditLog

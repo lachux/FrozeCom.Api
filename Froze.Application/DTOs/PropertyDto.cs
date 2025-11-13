@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayingGuest.Application.DTOs
+namespace Froze.Application.DTOs
 {
     public class PropertyDto
     {

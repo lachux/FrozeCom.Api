@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayingGuest.Domain.Enums
+namespace Froze.Domain.Enums
 {
     public enum UserType
     {

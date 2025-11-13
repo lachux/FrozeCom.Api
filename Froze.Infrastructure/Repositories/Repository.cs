@@ -4,17 +4,17 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using PayingGuest.Domain.Interfaces;
-using PayingGuest.Infrastructure.Data;
+using Froze.Domain.Interfaces;
+using Froze.Infrastructure.Data;
 
-namespace PayingGuest.Infrastructure.Repositories
+namespace Froze.Infrastructure.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        protected readonly PayingGuestDbContext _context;
+        protected readonly FrozeDbContext _context;
         protected readonly DbSet<T> _dbSet;
 
-        public Repository(PayingGuestDbContext context)
+        public Repository(FrozeDbContext context)
         {
             _context = context;
             _dbSet = context.Set<T>();

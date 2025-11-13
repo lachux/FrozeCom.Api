@@ -1,4 +1,4 @@
-﻿using PayingGuest.Domain.Common;
+﻿using Froze.Domain.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayingGuest.Domain.Entities
+namespace Froze.Domain.Entities
 {
     public class RoleMenu : BaseEntity
     {

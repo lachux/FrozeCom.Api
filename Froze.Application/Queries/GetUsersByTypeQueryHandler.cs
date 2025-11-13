@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using PayingGuest.Application.DTOs;
-using PayingGuest.Common.Models;
-using PayingGuest.Domain.Interfaces;
+using Froze.Application.DTOs;
+using Froze.Common.Models;
+using Froze.Domain.Interfaces;
 
-namespace PayingGuest.Application.Queries
+namespace Froze.Application.Queries
 {
     public class GetUsersByTypeQueryHandler : IRequestHandler<GetUsersByTypeQuery, ApiResponse<IEnumerable<UserDto>>>
     {

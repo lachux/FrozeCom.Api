@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayingGuest.Application.DTOs.Menus
+namespace Froze.Application.DTOs.Menus
 {
     public class RoleWithPermissionsDto
     {

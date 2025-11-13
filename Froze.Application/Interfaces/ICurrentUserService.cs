@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayingGuest.Application.Interfaces
+namespace Froze.Application.Interfaces
 {
     public interface ICurrentUserService
     {

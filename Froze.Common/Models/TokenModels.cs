@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayingGuest.Common.Models
+namespace Froze.Common.Models
 {
     public class TokenRequest
     {
@@ -36,10 +36,10 @@ namespace PayingGuest.Common.Models
 
     public class CreateUserDto
     {
-        public string Username { get; set; } = string.Empty;
+        public string UserName { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
-        public string? Firstname { get; set; }
-        public string? Lastname { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
         public string? EmailAddress { get; set; }
         public bool IsActive { get; set; } = true;
     }

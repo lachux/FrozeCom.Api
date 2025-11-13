@@ -3,13 +3,13 @@ using MediatR;
 using MediatR.NotificationPublishers;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using PayingGuest.Application.Behaviors;
-using PayingGuest.Application.Commands;
-using PayingGuest.Application.Mappings;
-using PayingGuest.Application.Validators;
+using Froze.Application.Behaviors;
+using Froze.Application.Commands;
+using Froze.Application.Mappings;
+using Froze.Application.Validators;
 using System.Reflection;
 
-namespace PayingGuest.Application
+namespace Froze.Application
 {
     /// <summary>
     /// Extension methods for setting up application layer services in DI container

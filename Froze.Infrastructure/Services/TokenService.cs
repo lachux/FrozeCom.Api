@@ -1,15 +1,15 @@
 ﻿using Microsoft.Extensions.Logging;
-using PayingGuest.Application.Interfaces;
-using PayingGuest.Common.Models;
-using PayingGuest.Domain.Entities;
-using PayingGuest.Domain.Interfaces;
+using Froze.Application.Interfaces;
+using Froze.Common.Models;
+using Froze.Domain.Entities;
+using Froze.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayingGuest.Infrastructure.Services
+namespace Froze.Infrastructure.Services
 {
     public class TokenService : ITokenService
     {

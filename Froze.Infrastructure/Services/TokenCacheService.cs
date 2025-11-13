@@ -3,10 +3,10 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
-using PayingGuest.Application.Interfaces;
-using PayingGuest.Common.Models;
+using Froze.Application.Interfaces;
+using Froze.Common.Models;
 
-namespace PayingGuest.Infrastructure.Services
+namespace Froze.Infrastructure.Services
 {
     public class TokenCacheService : ITokenCacheService
     {

@@ -1,15 +1,15 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using PayingGuest.Application.Interfaces;
-using PayingGuest.Common.Models;
+using Froze.Application.Interfaces;
+using Froze.Common.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayingGuest.Application.Commands.Auth.Refresh
+namespace Froze.Application.Commands.Auth.Refresh
 {
     public class RefreshTokenCommandHandler : IRequestHandler<RefreshTokenCommand, ApiResponse<TokenResponse>>
     {
